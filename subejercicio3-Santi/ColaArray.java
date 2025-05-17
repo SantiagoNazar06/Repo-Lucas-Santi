@@ -17,22 +17,14 @@ public class ColaArray<T> {
         
         datos[fin] = elem;
         fin = (fin+1) % datos.length;
-
-        if(estaVacia()){
-            frente = fin;
-            tamaño++;
-        }
         tamaño++;
     }
 
     public T desencolar() {
         T elementoDesencolado = datos[frente];
         datos[frente] = null;
-        frente = (frente +1) % datos.length;
         tamaño--;
-        if(estaVacia()){
-            frente = fin;
-        }
+        frente = (frente +1) % datos.length;
         return elementoDesencolado;
     }
 
