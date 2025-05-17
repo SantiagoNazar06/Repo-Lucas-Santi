@@ -25,17 +25,40 @@ public class LinkedQueue<T> {
 
     // Método para agregar (enqueue)
     public void enqueue(T elemento) {
-        // implementar
+        Nodo<T> antiguoFinal = finalCola;
+        finalCola = new Nodo<>(elemento);
+        finalCola.siguiente = null;
+
+        if(isEmpty()){
+            finalCola = frente;
+        }else{
+            antiguoFinal.siguiente = finalCola;
+        }
+        tamaño++;
+
     }
 
     // Método para quitar (dequeue)
     public T dequeue() {
-        // implementar
+        if(isEmpty())
+            throw new IllegalStateException("Empty queue");
+
+        T elemento = frente.valor;
+        frente = frente.siguiente;
+        tamaño--;
+        if(isEmpty()){
+            finalCola = null;
+        }
+
+        return elemento;
     }
 
     // Método para ver el primero sin quitarlo (peek)
     public T peek() {
-        // implementar
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        return frente.valor;
     }
 
     // Verificar si está vacía
