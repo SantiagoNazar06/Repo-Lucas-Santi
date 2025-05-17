@@ -21,6 +21,9 @@ public class ColaArray<T> {
     }
 
     public T desencolar() {
+        if(estaVacia())
+            throw new IllegalStateException("Cola vacia");
+
         T elementoDesencolado = datos[frente];
         datos[frente] = null;
         tamaño--;
