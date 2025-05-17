@@ -20,6 +20,8 @@ public class Inventario {
      * Si no hay suficiente cantidad o el producto no existe, lanzar IllegalArgumentException.
      */
     public void extraerProducto(String nombre, int cantidad) {
+        if(cantidad <= 0)
+            throw new IllegalArgumentException("Cantidad negativa o cero");
         if(cantidad > productos.get(nombre))
             throw new IllegalArgumentException("No se puede extraer una cantidad mayor a la existente");
         if(!productos.containsKey(nombre))
