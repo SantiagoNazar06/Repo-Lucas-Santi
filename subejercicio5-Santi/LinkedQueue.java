@@ -30,7 +30,7 @@ public class LinkedQueue<T> {
         finalCola.siguiente = null;
 
         if(isEmpty()){
-            finalCola = frente;
+            frente = finalCola;
         }else{
             antiguoFinal.siguiente = finalCola;
         }
